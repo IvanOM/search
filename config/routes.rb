@@ -55,4 +55,5 @@ Rails.application.routes.draw do
   #   end
   
   get '/users/sign_in/', to: 'users#sign_in'
+  post '/users/sign_in/', to: 'users#sign_in'
 end
