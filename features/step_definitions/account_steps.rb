@@ -1,5 +1,10 @@
-Given(/^I am authenticated as "([^"]*)" "([^"]*)"$/) do |username, password|
-  @user = User.crreate!(:username => username, :password => password)
+Given(/^I am authenticated as "([^"]*)" "([^"]*)"$/) do |email, password|
+  @user = User.create!(:username => username, :password => password)
+  
+  visit '/users/sign_in/'
+  fill_in "email", :with => email
+  fill_in "password", :with => password
+  click_button "Sign in"
 end
 
 When(/^I create a new "(.*?)" with:$/) do |arg1, table|
