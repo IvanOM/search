@@ -5,7 +5,9 @@ Feature: Create account
   I want to create an account typing a description
   
   Scenario: Create a new account
-    Given I am authenticated as "user@user.com" "123"
+    Given I am logged in as:
+      | email | user@user.com |
+      | password | 123 |
     When I create a new "account" with:
       | name | description |
       | My account | My new account |
