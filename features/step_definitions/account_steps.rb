@@ -1,5 +1,5 @@
 Given(/^I am authenticated as "([^"]*)" "([^"]*)"$/) do |email, password|
-  @user = User.create!(:username => username, :password => password)
+  @user = User.create!(:email => email, :password => password)
   
   visit '/users/sign_in/'
   fill_in "email", :with => email
