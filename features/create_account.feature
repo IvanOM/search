@@ -5,14 +5,14 @@ Feature: Create account
   I want to create an account typing a description
   
   Scenario: Create a new account
-    Given I am authenticated as "user" "123"
+    Given I am authenticated as "user@user.com" "123"
     When I create a new "account" with:
       | name | description |
       | My account | My new account |
     Then I should see "My account" in "account" list
   
   Scenario: Create a new account without type a name
-    Given I am authenticated as "user" "123"
+    Given I am authenticated as "user@user.com" "123"
     When I create a new "account" with:
       | name | description |
       | | My new account |
