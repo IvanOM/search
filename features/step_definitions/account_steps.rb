@@ -2,9 +2,12 @@ Given(/^I am logged in as:$/) do |fields|
   @user = User.create!(fields.rows_hash)
 end
 
-When(/^I create a new "(.*?)" with:$/) do |arg1, table|
-  # table is a Cucumber::Ast::Table
-  pending # express the regexp above with the code you wish you had
+When(/^I create a new "([^"]*)" with:$/) do |resource, table|
+  account_data = table.hashes
+  visit "/#{resource}/new"
+  fill_in "email", :with => account_data[0]["email"]
+  fill_in "password", :with => account_data[0]["password"]
+  click_button "Save"
 end
 
 Then(/^I should see "(.*?)" in "(.*?)" list$/) do |arg1, arg2|
